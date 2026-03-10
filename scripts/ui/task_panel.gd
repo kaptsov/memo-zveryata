@@ -4,7 +4,7 @@ extends PanelContainer
 
 const TD_Ref = preload("res://scripts/data/task_data.gd")
 
-const ANIMAL_NAMES = ["manul", "saiga", "desman", "mandarin_duck"]
+const ANIMAL_NAMES = ["manul", "saiga", "desman", "mandarin_duck", "snow_leopard", "ptarmigan", "amur_tiger", "siberian_ibex"]
 const SEASON_NAMES = ["summer", "winter"]
 
 @onready var scroll: ScrollContainer = $ScrollContainer
@@ -81,7 +81,39 @@ func _fill_slot(panel: PanelContainer, task) -> void:
 	lbl.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	vbox.add_child(lbl)
 
+func _get_random_display_cards(count: int) -> Array:
+	var available: Array = []
+	if GameManager.state:
+		for card in GameManager.state.board:
+			available.append([card.animal_type, card.season])
+	if available.is_empty():
+		for _i in range(count):
+			available.append([randi() % 8, randi() % 2])
+	available.shuffle()
+	var result: Array = []
+	for i in range(count):
+		result.append(available[i % available.size()])
+	return result
+
 func _make_images_small(task) -> Control:
+	if AudioManager.task_random_mode:
+		var count = 2 if task.task_type == TD_Ref.TaskType.SIMPLE else 4
+		var cards = _get_random_display_cards(count)
+		if task.task_type == TD_Ref.TaskType.SIMPLE:
+			var hbox = HBoxContainer.new()
+			hbox.alignment = BoxContainer.ALIGNMENT_CENTER
+			hbox.add_theme_constant_override("separation", 4)
+			for c in cards:
+				hbox.add_child(_img(c[0], c[1], Vector2(88, 110)))
+			return hbox
+		else:
+			var grid = GridContainer.new()
+			grid.columns = 2
+			grid.add_theme_constant_override("h_separation", 4)
+			grid.add_theme_constant_override("v_separation", 4)
+			for c in cards:
+				grid.add_child(_img(c[0], c[1], Vector2(88, 110)))
+			return grid
 	if task.task_type == TD_Ref.TaskType.SIMPLE:
 		var hbox = HBoxContainer.new()
 		hbox.alignment = BoxContainer.ALIGNMENT_CENTER
@@ -159,6 +191,24 @@ func _create_deck_card(task) -> PanelContainer:
 	return panel
 
 func _make_images_deck(task) -> Control:
+	if AudioManager.task_random_mode:
+		var count = 2 if task.task_type == TD_Ref.TaskType.SIMPLE else 4
+		var cards = _get_random_display_cards(count)
+		if task.task_type == TD_Ref.TaskType.SIMPLE:
+			var hbox = HBoxContainer.new()
+			hbox.alignment = BoxContainer.ALIGNMENT_CENTER
+			hbox.add_theme_constant_override("separation", 3)
+			for c in cards:
+				hbox.add_child(_img(c[0], c[1], Vector2(48, 60)))
+			return hbox
+		else:
+			var grid = GridContainer.new()
+			grid.columns = 2
+			grid.add_theme_constant_override("h_separation", 3)
+			grid.add_theme_constant_override("v_separation", 3)
+			for c in cards:
+				grid.add_child(_img(c[0], c[1], Vector2(48, 60)))
+			return grid
 	if task.task_type == TD_Ref.TaskType.SIMPLE:
 		var hbox = HBoxContainer.new()
 		hbox.alignment = BoxContainer.ALIGNMENT_CENTER

@@ -9,6 +9,11 @@ var sfx_volume: float = 1.0
 var bgm_volume: float = 0.7
 var sfx_enabled: bool = true
 var bgm_enabled: bool = true
+var task_random_mode: bool = false  # false = классический, true = рандомный
+
+func set_task_random_mode(value: bool) -> void:
+	task_random_mode = value
+	_save_settings()
 
 var _bgm_player: AudioStreamPlayer = null
 var _sfx_players: Array[AudioStreamPlayer] = []
@@ -93,6 +98,7 @@ func _save_settings() -> void:
 	var config = ConfigFile.new()
 	config.set_value("audio", "bgm_volume", bgm_volume)
 	config.set_value("audio", "sfx_volume", sfx_volume)
+	config.set_value("game", "task_random_mode", task_random_mode)
 	config.save(SETTINGS_PATH)
 
 func _load_settings() -> void:
@@ -101,3 +107,4 @@ func _load_settings() -> void:
 		return
 	bgm_volume = config.get_value("audio", "bgm_volume", 0.7)
 	sfx_volume = config.get_value("audio", "sfx_volume", 1.0)
+	task_random_mode = config.get_value("game", "task_random_mode", false)

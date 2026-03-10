@@ -38,7 +38,7 @@ theme_override_constants/separation = 30
 layout_mode = 2
 size_flags_horizontal = 3
 horizontal_alignment = 1
-text = "⚙️ Настройки"
+text = "Настройки"
 theme_override_font_sizes/font_size = 36
 
 [node name="BGMRow" type="HBoxContainer" parent="VBox"]
@@ -48,7 +48,7 @@ theme_override_constants/separation = 15
 [node name="Label" type="Label" parent="VBox/BGMRow"]
 layout_mode = 2
 custom_minimum_size = Vector2(120, 0)
-text = "🎵 Музыка"
+text = "Музыка"
 theme_override_font_sizes/font_size = 20
 
 [node name="Slider" type="HSlider" parent="VBox/BGMRow"]
@@ -66,7 +66,7 @@ theme_override_constants/separation = 15
 [node name="Label" type="Label" parent="VBox/SFXRow"]
 layout_mode = 2
 custom_minimum_size = Vector2(120, 0)
-text = "🔊 Звуки"
+text = "Звуки"
 theme_override_font_sizes/font_size = 20
 
 [node name="Slider" type="HSlider" parent="VBox/SFXRow"]
@@ -76,6 +76,22 @@ min_value = 0.0
 max_value = 1.0
 step = 0.05
 value = 1.0
+
+[node name="TaskModeRow" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="VBox/TaskModeRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(120, 0)
+text = "Задания"
+theme_override_font_sizes/font_size = 20
+
+[node name="TaskModeButton" type="Button" parent="VBox/TaskModeRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 44)
+theme_override_font_sizes/font_size = 16
+text = "Классические"
 
 [node name="BackButton" type="Button" parent="VBox"]
 layout_mode = 2

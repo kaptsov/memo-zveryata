@@ -11,7 +11,7 @@ extends Control
 ##   - Обучение    (disabled, placeholder)
 ## Все динамические кнопки: SIZE_SHRINK_CENTER + _sync_dynamic_buttons_size() через call_deferred.
 
-const BUILD_VERSION: String = "v0.4.1"
+const BUILD_VERSION: String = "v0.4.2"
 
 @onready var local_button: Button = $VBox/Buttons/LocalGame
 @onready var local_no_help_button: Button = $VBox/Buttons/LocalNoHelp

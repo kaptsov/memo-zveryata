@@ -101,7 +101,8 @@ func _create_board_for_size(num_pairs: int) -> void:
 		board.append(all_cards[i])
 		board_flipped.append(false)
 
-## Создать задания для соло: по одному SIMPLE заданию для каждой уникальной пары на доске
+## Создать задания для соло: SIMPLE для каждой уникальной пары + HARD если ≥4 разных
+## животных одного сезона на доске.
 func _create_solo_tasks() -> void:
 	task_deck.clear()
 	task_slots.clear()
@@ -117,6 +118,22 @@ func _create_solo_tasks() -> void:
 			task.points = 1
 			task.required_animal = card.animal_type
 			task.required_season = card.season
+			task.is_active = true
+			task_deck.append(task)
+			id_counter += 1
+	# Добавить HARD задание если на доске ≥4 разных животных одного сезона
+	for season in [CD.Season.SUMMER, CD.Season.WINTER]:
+		var season_animals: Array = []
+		for key in seen.keys():
+			var parts = key.split("_")
+			if int(parts[1]) == season:
+				season_animals.append(int(parts[0]))
+		if season_animals.size() >= 4:
+			var task = TD.new()
+			task.task_id = id_counter
+			task.task_type = TD.TaskType.HARD
+			task.points = 2
+			task.required_season = season
 			task.is_active = true
 			task_deck.append(task)
 			id_counter += 1
