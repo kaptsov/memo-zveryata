@@ -50,11 +50,11 @@ theme_override_constants/separation = 20
 [node name="PlayAgain" type="Button" parent="VBox/Buttons"]
 layout_mode = 2
 custom_minimum_size = Vector2(200, 60)
-text = "🔄 Играть ещё"
+text = "Играть ещё"
 theme_override_font_sizes/font_size = 20
 
 [node name="Menu" type="Button" parent="VBox/Buttons"]
 layout_mode = 2
 custom_minimum_size = Vector2(200, 60)
-text = "🏠 В меню"
+text = "В меню"
 theme_override_font_sizes/font_size = 20

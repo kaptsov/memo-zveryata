@@ -75,7 +75,7 @@ custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 22
-text = "🃏 Колода заданий"
+text = "Колода заданий"
 
 [node name="CreateGame" type="Button" parent="VBox/Buttons"]
 custom_minimum_size = Vector2(300, 60)
@@ -89,7 +89,7 @@ custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 22
-text = "🔗 Присоединиться"
+text = "Присоединиться"
 
 [node name="Settings" type="Button" parent="VBox/Buttons"]
 custom_minimum_size = Vector2(300, 60)

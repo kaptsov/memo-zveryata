@@ -32,14 +32,14 @@ func _on_exit_pressed() -> void:
 		# Сброс через 2 секунды
 		await get_tree().create_timer(2.0).timeout
 		_confirm_exit = false
-		exit_button.text = "✕"
+		exit_button.text = "X"
 
 func update_display() -> void:
 	if not GameManager.state or not GameManager.state.game_started:
 		return
 	if GameManager.is_solo:
 		var score = GameManager.get_player_score(1)
-		my_score_label.text = "★ %d" % score
+		my_score_label.text = "Счёт: %d" % score
 		my_score_label.add_theme_font_size_override("font_size", 28)
 		my_score_label.add_theme_color_override("font_color", Color(1.0, 0.9, 0.2))
 		opponent_score_label.visible = false
@@ -58,19 +58,19 @@ func update_display() -> void:
 				parts.append("П%d:%d" % [pid, GameManager.get_player_score(pid)])
 			my_score_label.text = "  ".join(parts)
 			opponent_score_label.visible = false
-		turn_label.text = "▶ %s" % GameManager.get_current_player_name()
+		turn_label.text = GameManager.get_current_player_name()
 		turn_label.add_theme_color_override("font_color", Color.YELLOW)
 	else:
 		my_score_label.text = "Я: %d" % GameManager.get_my_score()
 		opponent_score_label.text = "Соп: %d" % GameManager.get_opponent_score()
 		opponent_score_label.visible = true
 		if GameManager.is_my_turn():
-			turn_label.text = "▶ Ваш ход"
+			turn_label.text = "Ваш ход"
 			turn_label.add_theme_color_override("font_color", Color.GREEN)
 		else:
-			turn_label.text = "⏳ Ход соперника"
+			turn_label.text = "Ход соперника"
 			turn_label.add_theme_color_override("font_color", Color.GRAY)
-	help_deck_label.text = "📦 %d" % GameManager.state.help_deck.size()
+	help_deck_label.text = "п/к: %d" % GameManager.state.help_deck.size()
 
 func _on_update(_a = null, _b = null) -> void:
 	update_display()

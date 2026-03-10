@@ -50,17 +50,17 @@ func update_display() -> void:
 			
 			match card.help_type:
 				HD_Ref.HelpType.EXTRA_FLIP:
-					btn.text = "🃏 +1 карта"
+					btn.text = "+1 карта"
 					btn.pressed.connect(func():
 						GameManager.on_use_help_card(captured_card)
 						update_display()
 					)
 				HD_Ref.HelpType.CHANGE_ANIMAL:
-					btn.text = "🔄 Сменить зверька"
+					btn.text = "Сменить зверька"
 					btn.pressed.connect(func(): help_card_selected.emit(captured_card))
 					btn.disabled = flipped == 0
 				HD_Ref.HelpType.CHANGE_SEASON:
-					btn.text = "🌦 Сменить фон"
+					btn.text = "Сменить фон"
 					btn.pressed.connect(func(): help_card_selected.emit(captured_card))
 					btn.disabled = flipped == 0
 			
@@ -73,12 +73,12 @@ func update_display() -> void:
 		# Ход провален, карты открыты — показываем "Завершить ход"
 		pass_button.visible = true
 		pass_button.disabled = false
-		pass_button.text = "⏭ Завершить ход"
+		pass_button.text = "Завершить ход"
 	elif flipped >= 2 and has_hard and flipped < GameManager.state.get_max_flips():
 		# Можно передать ход досрочно (есть сложное задание, открыто 2-3 карты)
 		pass_button.visible = true
 		pass_button.disabled = false
-		pass_button.text = "⏭ Передать ход"
+		pass_button.text = "Передать ход"
 	else:
 		pass_button.visible = false
 

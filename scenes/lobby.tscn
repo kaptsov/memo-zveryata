@@ -49,14 +49,14 @@ theme_override_constants/separation = 15
 layout_mode = 2
 custom_minimum_size = Vector2(300, 60)
 size_flags_horizontal = 4
-text = "🏠 Создать комнату"
+text = "Создать комнату"
 theme_override_font_sizes/font_size = 22
 
 [node name="JoinButton" type="Button" parent="VBox/ModeButtons"]
 layout_mode = 2
 custom_minimum_size = Vector2(300, 60)
 size_flags_horizontal = 4
-text = "🔗 Подключиться"
+text = "Подключиться"
 theme_override_font_sizes/font_size = 22
 
 [node name="HostPanel" type="VBoxContainer" parent="VBox"]
@@ -99,7 +99,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(300, 60)
 size_flags_horizontal = 4
 disabled = true
-text = "▶ Начать игру"
+text = "Начать игру"
 theme_override_font_sizes/font_size = 22
 
 [node name="JoinPanel" type="VBoxContainer" parent="VBox"]

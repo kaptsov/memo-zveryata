@@ -73,7 +73,7 @@ func _fill_slot(panel: PanelContainer, task) -> void:
 
 	vbox.add_child(_make_images_small(task))
 
-	var stars = "★" if task.task_type == TD_Ref.TaskType.SIMPLE else "★★"
+	var stars = "*" if task.task_type == TD_Ref.TaskType.SIMPLE else "**"
 	var lbl = Label.new()
 	lbl.text = "%s %d оч." % [stars, task.points]
 	lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -133,7 +133,7 @@ func _update_deck_display() -> void:
 	hbox.add_child(info)
 
 	var type_lbl = Label.new()
-	type_lbl.text = "★ Пара" if task.task_type == TD_Ref.TaskType.SIMPLE else "★★ Четвёрка"
+	type_lbl.text = "Пара" if task.task_type == TD_Ref.TaskType.SIMPLE else "Четвёрка"
 	type_lbl.add_theme_font_size_override("font_size", 15)
 	info.add_child(type_lbl)
 

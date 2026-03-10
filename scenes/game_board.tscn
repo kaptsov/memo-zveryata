@@ -51,7 +51,7 @@ theme_override_font_sizes/font_size = 16
 
 [node name="TurnIndicator" type="Label" parent="VBox/HUD/HBox"]
 layout_mode = 2
-text = "▶ Игрок 1"
+text = "Игрок 1"
 theme_override_font_sizes/font_size = 16
 
 [node name="OpponentScore" type="Label" parent="VBox/HUD/HBox"]
@@ -61,13 +61,13 @@ theme_override_font_sizes/font_size = 16
 
 [node name="HelpDeckCount" type="Label" parent="VBox/HUD/HBox"]
 layout_mode = 2
-text = "📦 16"
+text = "п/к: 16"
 theme_override_font_sizes/font_size = 16
 
 [node name="ExitButton" type="Button" parent="VBox/HUD/HBox"]
 layout_mode = 2
 custom_minimum_size = Vector2(36, 36)
-text = "✕"
+text = "X"
 theme_override_font_sizes/font_size = 16
 
 [node name="TaskPanel" type="PanelContainer" parent="VBox"]
@@ -126,5 +126,5 @@ theme_override_constants/separation = 6
 layout_mode = 2
 custom_minimum_size = Vector2(180, 36)
 size_flags_horizontal = 4
-text = "⏭ Завершить ход"
+text = "Завершить ход"
 theme_override_font_sizes/font_size = 14
