@@ -1,0 +1,20 @@
+# Godot
+.godot/
+*.import
+export_credentials.cfg
+
+# Сборки
+build/
+*.apk
+*.apk.idsig
+*.zip
+
+# Ключи
+*.keystore
+*.jks
+
+# macOS
+.DS_Store
+
+# Редактор
+.vscode/

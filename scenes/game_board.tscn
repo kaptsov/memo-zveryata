@@ -1,0 +1,130 @@
+[gd_scene load_steps=6 format=3 uid="uid://gameboard01"]
+
+[ext_resource type="Script" path="res://scripts/ui/game_board.gd" id="1"]
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="2"]
+[ext_resource type="Script" path="res://scripts/ui/task_panel.gd" id="3"]
+[ext_resource type="Script" path="res://scripts/game/board.gd" id="4"]
+[ext_resource type="Script" path="res://scripts/ui/help_panel.gd" id="5"]
+
+[node name="GameBoard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.16, 0.5, 0.3, 1)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="HUD" type="PanelContainer" parent="VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 50)
+script = ExtResource("2")
+
+[node name="HBox" type="HBoxContainer" parent="VBox/HUD"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 15
+
+[node name="MyScore" type="Label" parent="VBox/HUD/HBox"]
+layout_mode = 2
+text = "П1: 0"
+theme_override_font_sizes/font_size = 16
+
+[node name="TurnIndicator" type="Label" parent="VBox/HUD/HBox"]
+layout_mode = 2
+text = "▶ Игрок 1"
+theme_override_font_sizes/font_size = 16
+
+[node name="OpponentScore" type="Label" parent="VBox/HUD/HBox"]
+layout_mode = 2
+text = "П2: 0"
+theme_override_font_sizes/font_size = 16
+
+[node name="HelpDeckCount" type="Label" parent="VBox/HUD/HBox"]
+layout_mode = 2
+text = "📦 16"
+theme_override_font_sizes/font_size = 16
+
+[node name="ExitButton" type="Button" parent="VBox/HUD/HBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(36, 36)
+text = "✕"
+theme_override_font_sizes/font_size = 16
+
+[node name="TaskPanel" type="PanelContainer" parent="VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 120)
+script = ExtResource("3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBox/TaskPanel"]
+layout_mode = 2
+horizontal_scroll_mode = 2
+vertical_scroll_mode = 0
+
+[node name="TaskRow" type="HBoxContainer" parent="VBox/TaskPanel/ScrollContainer"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="Board" type="Control" parent="VBox"]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("4")
+
+[node name="GridContainer" type="GridContainer" parent="VBox/Board"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
+
+[node name="HelpPanel" type="PanelContainer" parent="VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 90)
+script = ExtResource("5")
+
+[node name="VBox" type="VBoxContainer" parent="VBox/HelpPanel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="HelpCountLabel" type="Label" parent="VBox/HelpPanel/VBox"]
+layout_mode = 2
+horizontal_alignment = 1
+text = "Карты помощи: 0"
+theme_override_font_sizes/font_size = 13
+
+[node name="HelpRow" type="HBoxContainer" parent="VBox/HelpPanel/VBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 6
+
+[node name="PassButton" type="Button" parent="VBox/HelpPanel/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(180, 36)
+size_flags_horizontal = 4
+text = "⏭ Завершить ход"
+theme_override_font_sizes/font_size = 14

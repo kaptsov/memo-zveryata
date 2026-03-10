@@ -1,0 +1,113 @@
+[gd_scene load_steps=2 format=3 uid="uid://mainmenu001"]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="1"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.94, 0.87, 0.2, 1)
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Spacer" type="Control" parent="VBox"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "МЕМО
+ЗВЕРЯТА"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "🐾 Найди зверят! 🐾"
+horizontal_alignment = 1
+
+[node name="Spacer2" type="Control" parent="VBox"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="LocalGame" type="Button" parent="VBox/Buttons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "🎲 Локальная игра"
+
+[node name="LocalNoHelp" type="Button" parent="VBox/Buttons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "🎲 Без карт помощи"
+
+[node name="DeckMode" type="Button" parent="VBox/Buttons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "🃏 Колода заданий"
+
+[node name="CreateGame" type="Button" parent="VBox/Buttons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "🎮 Создать игру"
+
+[node name="JoinGame" type="Button" parent="VBox/Buttons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "🔗 Присоединиться"
+
+[node name="Settings" type="Button" parent="VBox/Buttons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "⚙️ Настройки"
+
+[node name="Encyclopedia" type="Button" parent="VBox/Buttons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "📖 О зверятах"
+
+[node name="QuitGame" type="Button" parent="VBox/Buttons"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 22
+text = "Выйти из игры"
